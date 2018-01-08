@@ -1,74 +1,35 @@
 <style lang="less">
 @import '../../stylesheet/home.less';
-.box{
-  background-color:#28a9fd;
-  background-size:cover;
-  width:100%;
-  height:100vh;
-  display:-webkit-flex;
-  flex-direction:column;
+@import '~vux/src/styles/1px.less';
+box{
+        background-color:#28a9fd;
+}
+.flex-demo {
   text-align: center;
-  padding-top:2rem;
-  .images{
-          img{
-                  width:1.813rem;
-                  height:1.813rem;
-          }
-  }
-  .user_span{
-          padding-top:0.506rem;
-          font-size:0.92rem;
-          color:#ffffff;
-          span:nth-child(1){
-                  font-weight: 600;
-          }
-          span:nth-child(2){
-                  font-weight:300;
-          }
-  }
-  .user-from{
-          .user-user,.user-password{
-                  width:8rem;
-                  margin:0 auto;
-                  /* padding-bottom:0.266rem; */
-                  border-bottom:1px solid #a5d5fe;
-                  margin-top:1.093rem;
-
-          }
-          input{
-                  width:8rem;
-                  border:none;
-                  border-radius:0.266rem;
-                  text-align: center;
-                  font-size:0.48rem;
-                  font-weight: normal;
-                  font-stretch: normal;
-                  color:#ffffff;
-                  line-height: 0.8rem;
-                  background-color:#28a9fd;
-          }
-          .user-button{
-                  margin-top:1.573rem;
-                  button{
-                          width:8rem;
-                          height:1.333rem;
-                          border-radius: 50px;
-                          border:none;
-                          border:1px solid #ffffff;
-                          background-color:#28a9fd;
-                          color:#ffffff;
-                  }
-          }
-  }
-  .hom_foter{
-          font-size:0.48rem;
-          color:#ffffff;
-          margin-top:0.666rem;
-  }
+  color: #fff;
+  background-color: #20b907;
+  border-radius: 4px;
+  background-clip: padding-box;
 }
 </style>
 <template>
         <div class="box">
+                
+                <flexbox orient="vertical">
+                        <flexbox-item>
+                                <div class="flex-demo">
+                                        <group title="mask">
+                                                <x-input title="手机号码格式化" mask="999 9999 9999" v-model="maskValue" :max="13" is-type="china-mobile"></x-input>
+                                                <cell title="value" :value="maskValue"></cell>
+                                                <x-input title="(99) 9-99" mask="(99) 9-99" v-model="maskValue2" :max="9"></x-input>
+                                        </group>
+                                </div>
+                        </flexbox-item>
+                        <flexbox-item><div class="flex-demo"></div></flexbox-item>
+                </flexbox>
+                
+        </div>
+        <!-- <div class="box">
                 <div class="images">
                         <img src="../../assets/img/2018-01-05_135043.png" alt="">
                 </div>
@@ -95,9 +56,10 @@
                                 <router-link to="/please">Please</router-link> 
                         </span>
                 </div> 
-        </div>
+        </div> -->
 </template>
 <script>
+import { Flexbox, FlexboxItem, Divider, XInput, Group } from 'vux'
 export default {
         data: function () {
                 return {
@@ -113,8 +75,15 @@ export default {
                         if (this.user !== this.user || this.password !== this.password) {
                                 alert("用户名错误或密码错误，请从新输入！")
                         }
-                        this.$router.push({ path: `/please` });
+                        this.$router.push({ path: `/play` });
                 }
+        },
+        components: {
+                Flexbox,
+                FlexboxItem,
+                Divider,
+                Group,
+                XInput
         }
 }
 </script>

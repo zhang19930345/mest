@@ -1,14 +1,30 @@
 <style lang="less">
 @import '../../stylesheet/home.less';
+.play_header{
+        .play-fex{
+                display:-webkit-flex;
+                display:flex;
+                justify-content:space-around ;
+        }
+        .play_img{
+                img{
+                        width:0.35rem;
+                        height:0.50rem;
+                }
+        }
+        .play_font{
+                font-size:0.693rem;
+        }
+}
 </style>
 <template>
         <div class="play">
                 <div class="play_header">
-                        <div>
-                                <div>
-                                        <img src="" alt="">
+                        <div class="play-fex">
+                                <div class="play_img">
+                                        <img src="../../assets/img/2018-01-05_135425.png" alt="">
                                 </div>
-                                <div>
+                                <div class="play_font">
                                         <span>Time Machine</span>
                                 </div>
                         </div>   
